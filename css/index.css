@@ -21,9 +21,10 @@
 
   --fontstack-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
   --fontstack-primary: 'Josefin Sans', var(--fontstack-system);
 }
+
+/* --- CSS Reset */
 
 /* Remove all the default margin and paddings + use a better box sizing model */
 
@@ -75,6 +76,11 @@ button,
 textarea,
 select {
   font: inherit;
+  /* For this page specifically, I know that I also need to reset the other default styles */
+  appearance: none;
+  background: none;
+  border: none;
+  color: var(--clr-neutral-900, white);
 }
 
 /* Use smooth scrolling only if the user has not selected prefers reduced motion */
@@ -97,4 +103,149 @@ select {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* --- Page Styles */
+
+.container {
+  --container-width: 550px;
+  --container-padding: 4rem;
+
+  /* 
+    generates a container similar to a max-width container using the locally scoped custom properties 
+    where min(max-width, 100% - total inline padding)
+    which will set the width to the minimum value of a hard coded value (replacing the max-width) or 100% of the page width - an amount of padding
+    which gets applied on either side (when centered using margin 0 auto)
+  */
+
+  width: min(
+    var(--container-width),
+    calc(100% - calc(var(--container-padding) / 2))
+  );
+  margin: 5rem auto;
+
+  /* declare as a flex container in order to have consistent gaps between the sections */
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  /* basic typographic styles for the h1 */
+  font-size: 2.5rem;
+  letter-spacing: 0.75rem;
+  text-transform: uppercase;
+}
+
+.form {
+  border-radius: 0.375rem;
+  background: var(--clr-neutral-300);
+}
+
+.form--creation {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.submit {
+  color: var(--clr-neutral-600, hsl(234, 11%, 52%));
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  font-size: 1.125rem;
+}
+
+.submit,
+.checkbox {
+  --clr-border: hsl(0, 0%, 24%);
+  /* Set size to be a perfect square (1:1 ratio) */
+  max-width: 25px;
+  width: 100%;
+  aspect-ratio: 1;
+  /* Add border and radius to turn it into a circle */
+  border-radius: 50%;
+  border: 1px solid var(--clr-border);
+}
+
+/* Add custom checked state with an icon and gradient background */
+
+.checkbox:checked {
+  background: url('/images/icon-check.svg'),
+    linear-gradient(var(--clr-primary-600), var(--clr-primary-500));
+  /* Ensure there is only one checkmark */
+  background-repeat: no-repeat;
+  /* Position the checkmark */
+  background-position: center;
+}
+
+/* Add styles to the corresponding label when task is marked as completed */
+
+.checkbox:checked + label {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.task-divider {
+  --clr-border: hsla(234, 39%, 85%, 0.1);
+  --divider-width: 95%;
+
+  /* acts as a border-bottom that does not run the full width of the element */
+  border-color: var(--clr-border);
+  background: var(--clr-border);
+  width: var(--divider-width);
+  margin: 0 auto;
+}
+
+.delete-task {
+  margin-left: auto;
+}
+
+.task-details {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.task-counter {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.task-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* Center the buttons + dictate where the two other items go on the page */
+  margin: 0 auto;
+}
+
+.task-button {
+  color: var(--clr-neutral-600, hsl(234, 11%, 52%));
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.task-button--active {
+  color: var(--clr-primary-400);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--clr-neutral-600, hsl(234, 11%, 52%));
+  font-size: 0.875rem;
+  text-align: center;
 }

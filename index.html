@@ -41,15 +41,17 @@
     <!-- actual content -->
     <main>
       <section class="container">
-        <h1>To Do</h1>
-        <img
-          src="/images/icon-sun.svg"
-          width="28"
-          height="33"
-          alt="Sun icon - switch to light mode"
-        />
-        <form>
-          <button type="submit"></button>
+        <header class="heading">
+          <h1 class="title">Todo</h1>
+          <img
+            src="/images/icon-sun.svg"
+            width="28"
+            height="33"
+            alt="Sun icon - switch to light mode"
+          />
+        </header>
+        <form class="form form--creation">
+          <button type="submit" class="submit">+</button>
           <label for="create" class="sr-only">Create a new todo</label>
           <input
             type="text"
@@ -59,25 +61,41 @@
             aria-label="Create a new todo..."
           />
         </form>
-        <form>
+        <form class="form">
           <ul>
-            <li>
-              <label for="2">Read for 1 hour</label>
-              <input type="checkbox" id="2" />
+            <li class="task">
+              <input type="checkbox" id="1" class="checkbox"/>
+              <label for="1">Read for 1 hour</label>
+              <img src="/images/icon-cross.svg" width="15" height="15" alt="Cross icon - remove task" class="delete-task">
+            </li>
+            <hr class="task-divider">
+            <li class="task">
+              <input type="checkbox" id="2" class="checkbox"/>
+              <label for="2">Go for a walk</label>
+              <img src="/images/icon-cross.svg" width="15" height="15" alt="Cross icon - remove task" class="delete-task">
+            </li>
+            <hr class="task-divider">
+            <li class="task">
+              <input type="checkbox" id="3" class="checkbox"/>
+              <label for="3">Do a JavaScript Course</label>
+              <img src="/images/icon-cross.svg" width="15" height="15" alt="Cross icon - remove task" class="delete-task">
             </li>
           </ul>
-          <div>
-            <p>6 items left</p>
-            <div>
-              <button>All</button>
-              <button>Active</button>
-              <button>Completed</button>
+          <div class="task-details">
+            <p class="task-counter">6 items left</p>
+            <div class="task-buttons">
+              <button class="task-button task-button--active">All</button>
+              <button class="task-button">Active</button>
+              <button class="task-button">Completed</button>
             </div>
 
-            <button>Clear Completed</button>
+            <button class="task-button">Clear Completed</button>
           </div>
         </form>
-        <p>Drag and drop to reorder list</p>
+        <footer class="footer">
+          <p>Drag and drop to reorder list</p>
+          <p>Challenge by <a href="https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW" target="_blank">Frontend Mentor</a> </p>
+        </footer>
       </section>
     </main>
   </body>
