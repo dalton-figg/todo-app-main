@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- SEO -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Todo App</title>
+
+    <!-- Favicon -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <!-- Google Fonts [ Josefin Sans - 400, 700 ]-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+    <!-- JS -->
+
+    <script src="/js/app.js" defer></script>
+  </head>
+  <body>
+    <!-- background header image -->
+    <header>
+      <img src="/images/bg-desktop-dark.jpg" alt="" />
+    </header>
+    <!-- actual content -->
+    <main>
+      <section class="container">
+        <h1>To Do</h1>
+        <img
+          src="/images/icon-sun.svg"
+          width="28"
+          height="33"
+          alt="Sun icon - switch to light mode"
+        />
+        <form>
+          <button type="submit"></button>
+          <label for="create" class="sr-only">Create a new todo</label>
+          <input
+            type="text"
+            name="create"
+            id="create"
+            placeholder="Create a new todo..."
+            aria-label="Create a new todo..."
+          />
+        </form>
+        <form>
+          <ul>
+            <li>
+              <label for="2">Read for 1 hour</label>
+              <input type="checkbox" id="2" />
+            </li>
+          </ul>
+          <div>
+            <p>6 items left</p>
+            <div>
+              <button>All</button>
+              <button>Active</button>
+              <button>Completed</button>
+            </div>
+
+            <button>Clear Completed</button>
+          </div>
+        </form>
+        <p>Drag and drop to reorder list</p>
+      </section>
+    </main>
+  </body>
+</html>
