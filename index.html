@@ -34,10 +34,6 @@
     <script src="/js/app.js" defer></script>
   </head>
   <body>
-    <!-- background header image -->
-    <header>
-      <img src="/images/bg-desktop-dark.jpg" alt="" />
-    </header>
     <!-- actual content -->
     <main>
       <section class="container">
@@ -51,7 +47,7 @@
           />
         </header>
         <form class="form form--creation">
-          <button type="submit" class="submit">+</button>
+          <button type="submit" class="submit" id="createTask">+</button>
           <label for="create" class="sr-only">Create a new todo</label>
           <input
             type="text"
@@ -62,34 +58,17 @@
           />
         </form>
         <form class="form">
-          <ul>
-            <li class="task">
-              <input type="checkbox" id="1" class="checkbox"/>
-              <label for="1">Read for 1 hour</label>
-              <img src="/images/icon-cross.svg" width="15" height="15" alt="Cross icon - remove task" class="delete-task">
-            </li>
-            <hr class="task-divider">
-            <li class="task">
-              <input type="checkbox" id="2" class="checkbox"/>
-              <label for="2">Go for a walk</label>
-              <img src="/images/icon-cross.svg" width="15" height="15" alt="Cross icon - remove task" class="delete-task">
-            </li>
-            <hr class="task-divider">
-            <li class="task">
-              <input type="checkbox" id="3" class="checkbox"/>
-              <label for="3">Do a JavaScript Course</label>
-              <img src="/images/icon-cross.svg" width="15" height="15" alt="Cross icon - remove task" class="delete-task">
-            </li>
+          <ul class="tasks">
           </ul>
           <div class="task-details">
             <p class="task-counter">6 items left</p>
             <div class="task-buttons">
-              <button class="task-button task-button--active">All</button>
-              <button class="task-button">Active</button>
+              <button class="task-button task-button--active" id="allButton">All</button>
+              <button class="task-button" id="activeButton">Active</button>
               <button class="task-button">Completed</button>
             </div>
 
-            <button class="task-button">Clear Completed</button>
+            <button class="task-button" id="clearCompleted">Clear Completed</button>
           </div>
         </form>
         <footer class="footer">
